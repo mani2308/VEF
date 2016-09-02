@@ -176,3 +176,5 @@ natcasesort()= Array ( [3] => pic1.jpg [0] => pic2.jpg [1] => PIC10.jpg [2] => p
 
 17.	Hvað er server-side scripting? Útskýrðu ferlið. 
 Svar:   Server-side scripting is a technique used in web development which involves employing scripts on a web server which produce a response customized for each user's (client's) request to the website. The alternative is for the web server itself to deliver a static web page. Scripts can be written in any of a number of server-side scripting languages that are available. Server-side scripting is distinguished from client-side scripting where embedded scripts, such as JavaScript, are run client-side in a web browser, but both techniques are often used together.
+
+Server-side skriftir er tækni sem notuð eru í þróun vefa sem felur í sér forskriftir á vefþjóni sem framleiða svar sérsniðin fyrir viðskiptavina hvers notanda á vefsvæðið. Forskriftir geta verið skrifaðar í einhverju fjölda frá hlið vefsíðuhannandans, skrifta tungumál sem eru í boði. Server-side skriftir greina frá hlið viðskiptavins þar sem eru innbyggð forrit, s.s. JavaScript, eru rekin notanda megin á vefsíðunni, en báðar aðferðir eru oft notaðar saman.
