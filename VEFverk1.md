@@ -139,16 +139,36 @@ E-mail: jason@example.com <br /> Phone: 614-999-9999
 </p> 
 
 Svar: 
-echo "Name: ".$customers[0][0]."<br>"."E-mail: ".$customers[0][1]."<br>"."Phone: ".$customers[0][2]."<br>"."<br>";
-echo $customers[1][0].": In stock: ".$customers[1][1].", sold: ".$customers[1][2].".<br>";
-echo $customers[2][0].": In stock: ".$customers[2][1].", sold: ".$customers[2][2].".<br>";
+<?php
+$customers = array
+  (
+  array("Jason Gilmore", "Jesse James", "Donald Duck"),
+  array("jason@example.com", "jesse@example.net", "donald@example.org"),
+  array("614-999-9999", "818-999-9999", "212-999-9999")
+  );
+  
+$New= array();
+    for ($i = 0; $i < count($customers); $i++) {
+       $New[] = array_column($customers, $i);
+    }
+
+    foreach($New as $vals) {
+		echo implode(' : ', $vals) . '<br>';
+    }
+?>
 
 
 14.	Hver er útkoman með að nota a) sort() fallið og hinsvegar natcasesort() á $pic? 
 $pic = array("pic2.jpg", "PIC10.jpg", "pic20.jpg", "pic1.jpg"); 
+Svar:
+sort()= Array ( [0] => PIC10.jpg [1] => pic1.jpg [2] => pic2.jpg [3] => pic20.jpg )
+natcasesort()= Array ( [3] => pic1.jpg [0] => pic2.jpg [1] => PIC10.jpg [2] => pic20.jpg )
  
 
 15.	Hvað er HTTP, hvað þýðir að það sé stateless (útskýrðu). 
+	Svar: HTTP þýðir HyperText Transfer Protocol. HTTP er undirliggjandi samskiptamáti sem er notaður af 
+	World Wide Web og þessar siðareglur eru skilgreindar hvernig skilaboð eru sniðin og sent, og hvaða aðgerðir
+	Vefþjónum og vafrar ættu að bregðast við hinnum ýmsu skipunum.
  
 
 16.	Útskýrðu eftirfarandi URL (samsetningu) útfrá protocol og domains;  http://www.tskoli.is 
