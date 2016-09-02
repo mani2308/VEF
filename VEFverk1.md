@@ -1,7 +1,6 @@
 # VEF
 
 1.	Hver er munurinn á echo() og print() 
-2.	
 Svar: echo og print eru eiginlega það sama. Munurinn er lítill: echo er ekki með return value á meðan print er með return value af 1 svo það getur verið notað í orðasamböndum. Echo getur tekið margar parameters (hinns vegar er sá háttur sjaldgæfur) á meðan print getur tekið 1 argument. Echo er lítillega hraðari en print.
 
 
@@ -12,8 +11,6 @@ Svar: $s = "dollars";
 
 
 3.	Hvað er $GLOBALS, hvernig virkar það, komdu með dæmi. 
-
-
 Svar: $GLOBALS er tilvísanir allar breytur í boði í alþjóðlegu umfangi. Tengir array sem inniheldur tilvísanir í öllum breytum sem eru nú skilgreindar í alþjóðlegum umfangi handriti. Breytilegu nöfnin eru lyklar fylkisins. 
 <?php
 function test() {
@@ -29,7 +26,6 @@ test();
  
  
 4.	Hvenær myndir þú nota === virkjann fremur en  ==, komdu með dæmi. 
-
 Svar: == þýðir jafnt. Skilar satt ef $x er jafnt $y. Og === þýðir alveg eins. Skilar satt ef $x er jafnt $y, og þeir eru af sömu gerð.
 Dæmi ==: <?php
         $x = 100;  
@@ -69,11 +65,20 @@ Svar:  $a =1;           lætur gildið á $a verða að einum(1).
 7.	Gefið er eftirfarandi array: 
 $array = array("a","b",array("d","e"),"f"); 
 Hvaða skipun má gefa til að fá fjölda stakanna í $array, að stökunum í innra fylkinu meðtöldum?  
+
  Svar:  echo describeAnidatedArray($array);
 
 
 8.	Búðu til nefnt fylki (Associative array) með eftirfarandi borgum og löndum; Japan -Tokyo, Mexico Mexico City, USA - New York City, India - Mumbai, Korea - Seoul,  China - Shanghai.  Notið foreach til að birta Lönd og borgir. 
- 
+ Svar:  
+<?php
+	$country = array("Japan"=>"Tokyo", "Mexico"=>"Mexico City", "USA"=>"New York", "India"=>"Mumbai", "Korea"=>"Seoul", "China"=>"Shanghai");
+
+	foreach($country as $x => $x_value) {
+		echo "Land: " . $x . " - " . $x_value;
+    	echo "<br>";
+	}
+?>
 
 9.	Notaðu echo og list() til að birta á skjá eftrifarandi gildi úr $colors. 
 $colors = array("red","blue","green");  
@@ -128,12 +133,16 @@ $customers[] = array("Jesse James", "jesse@example.net", "818-999-9999");
 $customers[] = array("Donald Duck", "donald@example.org", "212-999-9999"); 
  
 Notaðu foreach og vprintf() til að birta öll gögnin á eftirfarandi sniði: 
- 
 <p>  
 Name: Jason Gilmore<br />  
 E-mail: jason@example.com <br /> Phone: 614-999-9999  
 </p> 
- 
+
+Svar: 
+echo "Name: ".$customers[0][0]."<br>"."E-mail: ".$customers[0][1]."<br>"."Phone: ".$customers[0][2]."<br>"."<br>";
+echo $customers[1][0].": In stock: ".$customers[1][1].", sold: ".$customers[1][2].".<br>";
+echo $customers[2][0].": In stock: ".$customers[2][1].", sold: ".$customers[2][2].".<br>";
+
 
 14.	Hver er útkoman með að nota a) sort() fallið og hinsvegar natcasesort() á $pic? 
 $pic = array("pic2.jpg", "PIC10.jpg", "pic20.jpg", "pic1.jpg"); 
