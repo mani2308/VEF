@@ -48,7 +48,7 @@ header{
     width: 100%;
     background-color: #1f6684;
     text-align: center;
-    min-height: 20em;
+    min-height: 10em;
     height: 20vh;
     overflow: hidden;
     background-size: cover;
@@ -83,7 +83,7 @@ header div{
     left:0px;
     top:0px;
     height: 20vh;
-    min-height: 20em;
+    min-height: 10em;
     width: 100%;
     text-align: center;
     padding-top: 18vh;

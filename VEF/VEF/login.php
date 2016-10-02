@@ -9,11 +9,11 @@
 <div class="containall">
     <?php include("./includes/menu.php") ?>
     <main>
-        <?php include("./includes/images.php") ?>
+        <?php include("./includes/loginform.php") ?>
+        <?php include("./includes/registerform.php") ?>
     </main>
 </div>
 <?php include("./includes/footer.php") ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
-
 </html>

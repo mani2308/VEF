@@ -9,7 +9,7 @@
 <div class="containall">
     <?php include("./includes/menu.php") ?>
     <main>
-    	<p>Einhver Texti kemur hérna sem ég á eftir að skrifa</p>
+    	<p>Máni Karl Guðmundsson einnig þekktur sem Moon Moon</p>
     </main>
 </div>
 <?php include("./includes/footer.php") ?>

@@ -10,7 +10,7 @@
     <?php include("./includes/menu.php") ?>
     <main>
         <?php include("./includes/loginform.php") ?>
-        <?php include("./includes/registerform.php") ?>
+        
     </main>
 </div>
 <?php include("./includes/footer.php") ?>
