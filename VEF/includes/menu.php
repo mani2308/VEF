@@ -21,8 +21,5 @@
 		<li>
 			<a href="upload.php" <?php if ($currentPage == "upload.php") { echo "class=\"current\""; } ?>>Upload</a>
 		</li>
-		<li>
-			<a href="session_01.php" <?php if ($currentPage == "session_01.php") { echo "class=\"current\""; } ?>>Session 1</a>
-		</li>
 	</ul>
 </nav>

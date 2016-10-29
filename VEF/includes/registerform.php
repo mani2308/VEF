@@ -1,66 +1,57 @@
-
-<!--<form method="post" action="register.php">
-    <label>Nýskrá</label>
-        <fieldset>
-           	<input type="text" name="username" placeholder="Notendanafn" required pattern="{5}" title="Notendanafn, minnst fimm stafir">
-           	<input type="netfang" name="netfang" placeholder="Netfang" required title="Netfang">
-        	<input type="password" name="password" placeholder="Lykilorð" required title="Lykilorð">
-		</fieldset>
-	Skrá inn</button>
-</form>
-<div class="g-recaptcha" data-sitekey="6LdLtxcTAAAAAJrk7gzmEJmNJYoGyt9kpqBDm3_g"></div>
-	<button type="submit" class="pure-button pure-input-1 pure-button-primary">
--->
-
-	<?php  
-if (!empty($_POST["g-recaptcha-response"])){
-	$response = $_POST["g-recaptcha-response"];
-	$secret = "6LdLtxcTAAAAAPl7aQ1Oa7Sm7vAVAj5k8FKO2Rqg";
-	$remoteip = $_SERVER['REMOTE_ADDR'];
-	echo $response;
-}
-if (isset($_POST['register'])) {
-    $email = trim($_POST['email']);
-    $username = trim($_POST['username']);
-    $password = trim($_POST['pwd']);
-    $retyped = trim($_POST['conf_pwd']);
-    $userfile = 'C:/private/encrypted.csv';
-    require_once 'register_user_csv.php';
-}
-?>
-
 <?php
-if (isset($result) || isset($errors)) {
-    echo '<ul>';
-    if (!empty($errors)) {
-        foreach ($errors as $item) {
-            echo "<li>$item</li>";
-        }
+if(isset($_POST['register'])) {
+ 
+    $uname = trim(strip_tags($_POST['username-reg']));
+    $upass = trim(strip_tags($_POST['password-reg']));
+    //$email = trim(strip_tags($_POST['email-reg']));
+    //$rname = trim(strip_tags($_POST['name-reg']));
+    // Check if everyting is ok with register form
+    if ($uname == "") {
+        // if username field is blank
+        $error = "provide username!";
+    } else if ($upass == "") {
+        // if password is blank
+        $error = "provide password!";
+    } else if (strlen($upass) < 6) {
+        // if password is less than 6 chars
+        $error = "Password must be atleast 6 characters";
     } else {
-        echo "<li>$result</li>";
+        try {
+            // Run query to check if user is already in the db
+            $stmt = $user->runQuery("SELECT username FROM users WHERE username=:uname");
+            $stmt->execute(array(':uname' => $uname));
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($row['username'] == $uname) {
+                // if user exist an error is thrown
+                $error = "sorry username already taken !";
+                }   
+             else {
+                // if username does not exist we put him to db
+                if ($user->register($uname, $upass)) { // Sets input fields to register function in Auth class
+                    $_SESSION["username"] = $uname; // Setur session á userinn svo að þú getur unnið með hann þegar hann er búinn að logga sig inn
+                    $user->redirect('upload.php'); // Þegar user er búinn að registera þá fer hann inná þessa síðu
+                }
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
-    echo '</ul>';
 }
 ?>
-
-<form action="" method="post">
-        <p>
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
-    </p>
+<form action="" method="POST">
     <p>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+        <label for="username-reg">Username:</label>
+        <input type="text" name="username-reg" id="username">
     </p>
     <p>
         <label for="pwd">Password:</label>
-        <input type="password" name="pwd" id="pwd">
+        <input type="password-reg" name="password-reg" id="pwd">
     </p>
     <p>
         <label for="conf_pwd">Retype Password:</label>
-        <input type="password" name="conf_pwd" id="conf_pwd">
+        <input type="password-reg" name="password-reg2" id="conf_pwd">
     </p>
-    <div class="g-recaptcha" data-sitekey="6LdLtxcTAAAAAJrk7gzmEJmNJYoGyt9kpqBDm3_g"></div>
     <p>
         <input type="submit" name="register" value="Register">
     </p>

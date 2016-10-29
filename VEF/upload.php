@@ -5,11 +5,12 @@
 <!DOCTYPE html>
 <?php  include("./includes/head.php");?>
 <body>
-    <?php include("./includes/header.php") ?>
-<div class="containall">
+    <?php include("./includes/header.php") ?>n
     <?php include("./includes/menu.php") ?>
+<div class="containall">   
     <main>
         <?php include("./includes/imageupload.php") ?>
+        
     </main>
 </div>
 <?php include("./includes/footer.php") ?>

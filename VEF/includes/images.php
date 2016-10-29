@@ -1,5 +1,5 @@
 <?php
-    $dir = 'indexZ';
+    $dir = 'imgs/Players/';
     array_multisort(array_map('filemtime', ($images = glob("{$dir}*.{jpg,png,gif,jpeg}", GLOB_BRACE))), SORT_DESC, $images);
     foreach ($images as $key => $value) {
         echo "<article>

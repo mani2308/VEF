@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<form method="post" >
+<form method="post" action="session_02.php">
     <p>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">

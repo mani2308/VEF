@@ -1,5 +1,5 @@
 <?php
-    $dir = 'imgs/Maps/';
+    $dir = 'imgs/Players/';
     array_multisort(array_map('filemtime', ($images = glob("{$dir}*.{jpg,png,gif,jpeg}", GLOB_BRACE))), SORT_DESC, $images);
     $imgpath = $images[htmlspecialchars($_GET["img"])];
 ?>
